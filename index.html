@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!--GSAP-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <!--JAVASCRIPT-->
+    <script src="script.js" defer></script>
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+  </head>
+  <body>
+    <main class="container">
+      <section class="calc-data">
+        <div class="title-button-group">
+          <h1>Mortgage Calculator</h1>
+          <button class="clear-button">Clear All</button>
+        </div>
+        <form>
+          <!--MORTGAGE AMOUNT-->
+          <div class="input-group">
+            <label for="amount"
+              >Mortgage Amount
+              <span
+                class="tooltip"
+                data-tooltip="Enter the total mortgage amount"
+                >?</span
+              ></label
+            >
+            <div class="input-wrapper pound">
+              <input
+                id="amount"
+                type="text"
+                aria-required="true"
+                aria-describedby="amount-error"
+              />
+              <span class="input-suffix pound">£</span>
+              <p id="amount-error" class="error" role="alert">
+                This field is required
+              </p>
+            </div>
+          </div>
+          <!--MORTGAGE TERM-->
+          <div class="input-term-rate-group">
+            <div class="input-group term">
+              <label for="term"
+                >Mortgage Term
+                <span class="tooltip" data-tooltip="Enter mortgage term"
+                  >?</span
+                ></label
+              >
+              <div class="input-wrapper">
+                <input
+                  id="term"
+                  type="text"
+                  aria-required="true"
+                  aria-describedby="term-error"
+                />
+                <span class="input-suffix years">years</span>
+                <p id="term-error" class="error" role="alert">
+                  This field is required
+                </p>
+              </div>
+            </div>
+            <!--MORTGAGE INTEREST RATE-->
+            <div class="input-group">
+              <label for="interest-rate"
+                >Interest Rate
+                <span
+                  class="tooltip"
+                  data-tooltip="Enter mortgage interest rate"
+                  >?</span
+                ></label
+              >
+              <div class="input-wrapper">
+                <input
+                  id="interest-rate"
+                  type="text"
+                  aria-required="true"
+                  aria-describedby="interest-rate-error"
+                />
+                <span class="input-suffix percentage">%</span>
+                <p id="interest-rate-error" class="error" role="alert">
+                  This field is required
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--MORTGAGE TYPE-->
+          <div class="input-group">
+            <label class="margin-fix">Mortgage Type</label>
+            <!--RADI0 INPUTS-->
+            <div
+              class="radio-container"
+              role="radiogroup"
+              aria-labelledby="radio-group-label"
+            >
+              <div class="radio-wrapper">
+                <input
+                  type="radio"
+                  id="repayment"
+                  name="payment-type"
+                  value="repayment"
+                  aria-checked="false"
+                />
+                <label for="repayment">Repayment</label>
+              </div>
+            </div>
+            <div class="radio-container">
+              <div class="radio-wrapper">
+                <input
+                  type="radio"
+                  id="interest-only"
+                  name="payment-type"
+                  value="interest-only"
+                  aria-checked="false"
+                />
+                <label for="interest-only">Interest Only</label>
+              </div>
+              <p class="error">This field is required</p>
+            </div>
+          </div>
+          <button class="calc-button">
+            <img
+              src="assets/images/icon-calculator.svg"
+              alt="calculator icon"
+            />
+            <span>Calculate Repayments</span>
+          </button>
+        </form>
+      </section>
+      <!--RESULTS-->
+      <section class="results">
+        <!--DEFAULT RESULTS TEXT-->
+        <div class="results-hidden">
+          <img
+            src="assets/images/illustration-empty.svg"
+            alt="Calculation icon"
+          />
+          <h2>Results shown here</h2>
+          <p>
+            Complete the form and click 'calculate repayments' to see what your
+            monthly repayments would be.
+          </p>
+        </div>
+        <!--CALCULATED RESULTS-->
+        <div class="results-displayed">
+          <h2>Your results</h2>
+          <p>
+            Your results are shown below based on the information you provided.
+            To adjust the results, edit the form and click “calculate
+            repayments” again.
+          </p>
+          <div class="calc-results">
+            <div>
+              <span class="monthly">Your monthly repayments</span>
+              <p class="monthly-repayments"></p>
+            </div>
+            <div>
+              <span class="total">Total you'll repay over the term</span>
+              <p class="total-repayments"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="attribution">
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by
+      <a href="https://www.frontendmentor.io/profile/Zdravko93" target="_blank"
+        >Zdravko</a
+      >.
+    </div>
+  </body>
+</html>
