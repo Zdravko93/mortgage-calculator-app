@@ -44,8 +44,7 @@ Users should be able to:
 
 - Improved my skills in code refactoring.
 - Developed a better sense of estimating project timelines.
-- Integrated smooth, interactive animations using GSAP, enhancing the user experience. This included animations on page load, as well as when a calculation is made. Additionally, the Author section is animated, 
-  providing a more dynamic feel to the page.
+- Integrated smooth, interactive animations using GSAP, enhancing the user experience. This includes animations on page load, as well as when a calculation is made. Additionally, the Author section is animated, providing a more dynamic feel to the page.
   
 ## Author
 
