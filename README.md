@@ -38,12 +38,15 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
+- GSAP for smooth animations
 
 ### What I learned
 
 - Improved my skills in code refactoring.
 - Developed a better sense of estimating project timelines.
-
+- Integrated smooth, interactive animations using GSAP, enhancing the user experience. This included animations on page load, as well as when a calculation is made. Additionally, the Author section is also animated, 
+  providing a more dynamic feel to the page.
+  
 ## Author
 
 - Github - [Zdravko](https://github.com/Zdravko93)
