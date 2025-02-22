@@ -11,6 +11,7 @@ This is a solution to the [Mortgage repayment calculator challenge on Frontend M
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
 - [Useful Resources](#useful-resources)
+- [Installation Instructions](#installation-instructions)
 - [Author](#author)
 
 ## Overview
@@ -54,7 +55,21 @@ Users should be able to:
 - [MDN Web Docs - Flexbox](https://developer.mozilla.org/en-US/) - An essential guide for working with Flexbox for responsive layouts.
 - [CSS-Tricks](https://css-tricks.com/) - Using Custom Properties (CSS Variables) - Helpful resource for understanding CSS custom properties (variables) and how to use them in your projects.
 
-- GSAP 
+## Installation Instructions
+
+1. Clone the repository to your local machine using Git:
+   ```bash
+   git clone https://github.com/Zdravko93/mortgage-calculator-app.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd mortgage-calculator-app
+   ```
+3. Open the project in your browser: You can open the index.html file directly in your web browser by double-clicking on it or using a local server if you prefer.
+
+4. Optional: Install a local server (if needed): If you want to run this project with a local server, you can use tools like Live Server in VS Code or any other HTTP server. Once the server is running, open your browser and go to http://localhost:3000 (or the corresponding port).
+
+5. Start contributing or experimenting: Now you can make changes to the code, experiment with new features, or contribute to the project.
   
 ## Author
 
