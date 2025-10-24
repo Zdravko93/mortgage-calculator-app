@@ -1,3 +1,7 @@
+// UVDE 'import' OBJEKTE:
+// 1. inputErrorStyles = {...}
+// 2. formatter objekat = formatiranje brojeva, radi preglednosti i cistijeg glavnog .js fajla prebaciti u zaseban 'helper' fajl
+
 // Elements
 const mortgageTextInputs = document.querySelectorAll(
   "input:not([type='radio'])"
