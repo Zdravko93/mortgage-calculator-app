@@ -16,6 +16,17 @@ const radioError = errors[errors.length - 1];
 const hiddenContainer = document.querySelector(".results-hidden");
 const displayedContainer = document.querySelector(".results-displayed");
 
+// Toggle aria-hidden for screen readers
+const updateAriaHidden = (show) => {
+  if (show) {
+    hiddenContainer.setAttribute("aria-hidden", "true");
+    displayedContainer.setAttribute("aria-hidden", "false");
+  } else {
+    hiddenContainer.setAttribute("aria-hidden", "false");
+    displayedContainer.setAttribute("aria-hidden", "true");
+  }
+};
+
 // Toggle result containers visibility
 const toggleResultContainers = (show) => {
   if (show) {
@@ -29,6 +40,8 @@ const toggleResultContainers = (show) => {
     displayedContainer.style.opacity = "0";
     hiddenContainer.style.opacity = "1";
   }
+
+  updateAriaHidden(show);
 };
 
 // VALIDATION HANDLER
