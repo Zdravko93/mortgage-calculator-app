@@ -6,6 +6,7 @@ import { animateMainContainer, animateResults } from "./animations.js";
 // DOM ELEMENTS
 const form = document.querySelector("form");
 const clearBtn = document.querySelector(".clear-button");
+const calcButton = document.querySelector(".calc-button");
 const textInputs = document.querySelectorAll("input:not([type='radio'])");
 const suffixes = document.querySelectorAll(".input-suffix");
 const errors = document.querySelectorAll(".error");
@@ -17,14 +18,22 @@ const displayedContainer = document.querySelector(".results-displayed");
 
 // Toggle result containers visibility
 const toggleResultContainers = (show) => {
-  hiddenContainer.classList.toggle("hide", show);
-  displayedContainer.classList.toggle("show", show);
+  if (show) {
+    hiddenContainer.classList.add("hide");
+    displayedContainer.classList.add("show");
+    displayedContainer.style.opacity = "1";
+    hiddenContainer.style.opacity = "0";
+  } else {
+    hiddenContainer.classList.remove("hide");
+    displayedContainer.classList.remove("show");
+    displayedContainer.style.opacity = "0";
+    hiddenContainer.style.opacity = "1";
+  }
 };
 
 // VALIDATION HANDLER
 const validateForm = () => {
   let valid = true;
-  toggleResultContainers(false); // Hide results
 
   textInputs.forEach((input, i) => {
     const ok = validateInput(input, suffixes[i], errors[i]);
@@ -38,20 +47,63 @@ const validateForm = () => {
   );
   if (!radioValid) valid = false;
 
+  if (!valid) {
+    toggleResultContainers(false); // Hide results only if invalid
+  }
+
   return valid;
 };
 
 // EVENT HANDLERS
-form.addEventListener("submit", (e) => {
+calcButton.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    calcButton.classList.add("pressed");
+  }
+});
+calcButton.addEventListener("keyup", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    calcButton.classList.remove("pressed");
+  }
+});
+
+// Keep track of last submitted values
+let lastValues = {
+  amount: "",
+  term: "",
+  rate: "",
+  radioId: "",
+};
+
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if (!validateForm()) return;
 
-  const amount = parseFloat(document.getElementById("amount").value);
-  const term = parseFloat(document.getElementById("term").value);
-  const rate = parseFloat(document.getElementById("interest-rate").value);
+  const amount = document.getElementById("amount").value.trim();
+  const term = document.getElementById("term").value.trim();
+  const rate = document.getElementById("interest-rate").value.trim();
+  const checkedRadio = Array.from(radioButtons).find((r) => r.checked);
+  const radioId = checkedRadio ? checkedRadio.id : "";
 
-  const results = calculateMortgage(amount, term, rate);
+  // Check if inputs/radio are unchanged
+  const unchanged =
+    amount === lastValues.amount &&
+    term === lastValues.term &&
+    rate === lastValues.rate &&
+    radioId === lastValues.radioId;
 
+  if (!validateForm() || unchanged) return;
+
+  lastValues = { amount, term, rate, radioId };
+
+  // button effects
+  calcButton.classList.add("calculating");
+  await new Promise((res) => setTimeout(res, 100));
+
+  // Perform calculation
+  const results = calculateMortgage(
+    parseFloat(amount),
+    parseFloat(term),
+    parseFloat(rate)
+  );
   updateResults(
     radioButtons,
     results.monthlyRepayment,
@@ -62,25 +114,32 @@ form.addEventListener("submit", (e) => {
 
   toggleResultContainers(true);
   animateResults();
+
+  setTimeout(() => {
+    calcButton.classList.remove("calculating", "pressed");
+  }, 200);
 });
 
 clearBtn.addEventListener("click", () => {
   form.reset();
   clearErrorsAndStyles(textInputs, suffixes, errors, radioContainers);
   toggleResultContainers(false);
+
+  // reset values to allow the same values to be recalculated after clearing
+  lastValues = { amount: "", term: "", rate: "", radioId: "" };
 });
 
 window.addEventListener("load", animateMainContainer);
 
 // Real-time validation
 textInputs.forEach((input, i) => {
-  input.addEventListener("input", () =>
-    validateInput(input, suffixes[i], errors[i])
-  );
+  input.addEventListener("input", () => {
+    validateInput(input, suffixes[i], errors[i]);
+  });
 });
 
-radioButtons.forEach(() => {
-  document.addEventListener("change", () =>
-    validateRadioGroup(radioButtons, radioContainers, radioError)
-  );
+radioButtons.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    validateRadioGroup(radioButtons, radioContainers, radioError);
+  });
 });
