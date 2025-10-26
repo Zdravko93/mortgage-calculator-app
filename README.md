@@ -1,6 +1,6 @@
-# Frontend Mentor - Mortgage repayment calculator solution
+# Mortgage Repayment Calculator | Frontend Mentor Challenge
 
-This is a solution to the [Mortgage repayment calculator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/mortgage-repayment-calculator-Galx1LXK73). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This project is a solution to the [Mortgage repayment calculator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/mortgage-repayment-calculator-Galx1LXK73). The challenge helped me sharpen my front-end development skills while building a realistic, interactive calculator.
 
 ## Table of contents
 
@@ -16,14 +16,29 @@ This is a solution to the [Mortgage repayment calculator challenge on Frontend M
 
 ## Overview
 
+- A fully responsive, interactive mortgage calculator with smooth animations and accessibility considerations.
+
+### Features
+
+- **Animations (GSAP)** – Smooth, interactive animations for page load, calculations, and the author section.
+- **Form validation** – Provides user feedback for incomplete or invalid fields.
+- **Responsive design** – Optimized layout for different screen sizes, from mobile to desktop.
+- **Mortgage calculations** – Calculates monthly and total repayment amounts based on user input.
+
+### Accessibility
+
+- Semantic HTML elements improve screen reader support.
+- Form labels and input focus states enhance usability for all users.
+- Keyboard navigation supported for interactive elements.
+
 ### The challenge
 
-Users should be able to:
+The goal was to create a responsive mortgage repayment calculator where users can:
 
-- Input mortgage details and see monthly and total repayment amounts after submitting the form.
-- View form validation messages if any fields are incomplete.
-- See an optimized layout for the interface based on the device’s screen size.
-- See hover and focus states for all interactive elements.
+- Enter mortgage details (amount, term, interest rate) and view monthly and total repayments.
+- Receive form validation feedback for incomplete fields.
+- Interact with a responsive layout optimized for different screen sizes.
+- Experience smooth hover and focus states for interactive elements.
 
 ### Screenshot
 
@@ -36,24 +51,16 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- Mobile-first workflow
-- GSAP for smooth animations
+- HTML5 (Semantic Markup)
+- CSS3 (Custom Properties & Flexbox)
+- Mobile-First Responsive Design
+- GSAP (GreenSock Animation Platform) for interactive animations
 
 ### What I learned
 
 - Improved my skills in code refactoring.
-- Developed a better sense of estimating project timelines.
-- Integrated smooth, interactive animations using GSAP, enhancing the user experience. This includes animations on page load, as well as when a calculation is made. Additionally, the Author section is animated, providing a more dynamic feel to the page.
-
-## Useful Resources
-
-- [Frontend Mentor - Mortgage Repayment Calculator Challenge](https://www.frontendmentor.io/challenges/mortgage-repayment-calculator-Galx1LXK73) - The challenge that provided the foundation for this project.
-- [GSAP (GreenSock Animation Platform)](https://gsap.com/docs/v3/) - A powerful library for creating smooth, interactive animations. I used this for all the animations in the project.
-- [MDN Web Docs - Flexbox](https://developer.mozilla.org/en-US/) - An essential guide for working with Flexbox for responsive layouts.
-- [CSS-Tricks](https://css-tricks.com/) - Using Custom Properties (CSS Variables) - Helpful resource for understanding CSS custom properties (variables) and how to use them in your projects.
+- Gained experience estimating project timelines for real-world projects.
+- Enhanced user experience with GSAP animations for page load, calculations, and the author section, creating a dynamic, interactive interface.
 
 ## Installation Instructions
 
@@ -65,12 +72,12 @@ Users should be able to:
    ```bash
    cd mortgage-calculator-app
    ```
-3. Open the project in your browser: You can open the index.html file directly in your web browser by double-clicking on it or using a local server if you prefer.
+3. Open index.html in your preferred browser.
 
-4. Optional: Install a local server (if needed): If you want to run this project with a local server, you can use tools like Live Server in VS Code or any other HTTP server. Once the server is running, open your browser and go to http://localhost:3000 (or the corresponding port).
+   - Optional: Use a local server (e.g., Live Server in VS Code) for a smoother development experience.
 
-5. Start contributing or experimenting: Now you can make changes to the code, experiment with new features, or contribute to the project.
-  
+4. Modify, experiment, or contribute to the code as desired.
+
 ## Author
 
 - Github - [Zdravko](https://github.com/Zdravko93)
