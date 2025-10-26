@@ -3,6 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Free mortgage repayment calculator. Enter loan amount, interest rate, and term to estimate your monthly payments instantly."
+    />
+
+    <meta property="og:title" content="Mortgage Repayment Calculator" />
+    <meta
+      property="og:description"
+      content="Estimate your mortgage payments instantly."
+    />
+    <meta
+      property="og:image"
+      content="https://zdravko93.github.io/mortgage-calculator-app/preview.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://zdravko93.github.io/mortgage-calculator-app/"
+    />
+    <meta property="og:site_name" content="Mortgage Calculator App" />
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mortgage Repayment Calculator" />
+    <meta
+      name="twitter:description"
+      content="Estimate your mortgage payments instantly."
+    />
+    <meta
+      name="twitter:image"
+      content="https://zdravko93.github.io/mortgage-calculator-app/preview.png"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FinancialService",
+        "name": "Mortgage Repayment Calculator",
+        "description": "Estimate your mortgage payments instantly using free online calculator.",
+        "url": "https://zdravko93.github.io/mortgage-calculator-app/",
+        "image": "https://zdravko93.github.io/mortgage-calculator-app/preview.png"
+      }
+    </script>
+
+    <link
+      rel="canonical"
+      href="https://zdravko93.github.io/mortgage-calculator-app/"
+    />
     <link
       rel="icon"
       type="image/png"
@@ -20,14 +67,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <!--JAVASCRIPT-->
     <script type="module" src="js/main.js" defer></script>
-    <title>Frontend Mentor | Mortgage repayment calculator</title>
+    <title>Mortgage Repayment Calculator | Free Online Tool</title>
   </head>
   <body>
     <main class="container">
       <section class="calc-data">
         <div class="title-button-group">
           <h1>Mortgage Calculator</h1>
-          <button class="clear-button">Clear All</button>
+          <button type="button" class="clear-button">Clear All</button>
         </div>
         <form>
           <!--MORTGAGE AMOUNT-->
@@ -41,12 +88,14 @@
             <div class="input-wrapper pound">
               <input
                 id="amount"
-                type="text"
+                type="number"
                 aria-required="true"
                 aria-describedby="amount-error"
+                min="0"
+                step="0.01"
               />
               <span class="input-suffix pound">£</span>
-              <p id="amount-error" class="error" role="alert">
+              <p id="amount-error" class="error" aria-live="assertive">
                 This field is required
               </p>
             </div>
@@ -63,9 +112,11 @@
               <div class="input-wrapper">
                 <input
                   id="term"
-                  type="text"
+                  type="number"
                   aria-required="true"
                   aria-describedby="term-error"
+                  min="1"
+                  step="1"
                 />
                 <span class="input-suffix years">years</span>
                 <p id="term-error" class="error" role="alert">
@@ -86,9 +137,11 @@
               <div class="input-wrapper">
                 <input
                   id="interest-rate"
-                  type="text"
+                  type="number"
                   aria-required="true"
                   aria-describedby="interest-rate-error"
+                  min="0"
+                  step="0.01"
                 />
                 <span class="input-suffix percentage">%</span>
                 <p id="interest-rate-error" class="error" role="alert">
@@ -98,9 +151,15 @@
             </div>
           </div>
           <!--MORTGAGE TYPE-->
-          <div class="input-group">
-            <label class="margin-fix">Mortgage Type</label>
-            <!--RADI0 INPUTS-->
+          <div
+            class="input-group"
+            role="radiogroup"
+            aria-labelledby="radio-group-label"
+          >
+            <label id="radio-group-label" class="margin-fix"
+              >Mortgage Type</label
+            >
+            <!--RADIO INPUTS-->
             <div
               class="radio-container"
               role="radiogroup"
@@ -112,7 +171,6 @@
                   id="repayment"
                   name="payment-type"
                   value="repayment"
-                  aria-checked="false"
                 />
                 <label for="repayment">Repayment</label>
               </div>
@@ -124,14 +182,13 @@
                   id="interest-only"
                   name="payment-type"
                   value="interest-only"
-                  aria-checked="false"
                 />
                 <label for="interest-only">Interest Only</label>
               </div>
               <p class="error">This field is required</p>
             </div>
           </div>
-          <button class="calc-button">
+          <button type="submit" class="calc-button">
             <img
               src="assets/images/icon-calculator.svg"
               alt="calculator icon"
@@ -142,8 +199,8 @@
       </section>
       <!--RESULTS-->
       <section class="results">
-        <!--DEFAULT RESULTS TEXT-->
-        <div class="results-hidden">
+        <!--DEFAULT RESULTS TEXT (hidden when calculation is shown)-->
+        <div class="results-hidden" aria-hidden="false">
           <img
             src="assets/images/illustration-empty.svg"
             alt="Calculation icon"
@@ -154,15 +211,15 @@
             monthly repayments would be.
           </p>
         </div>
-        <!--CALCULATED RESULTS-->
-        <div class="results-displayed">
+        <!--CALCULATED RESULTS (hidden by default, becomes visible later)-->
+        <div class="results-displayed" aria-hidden="true" aria-live="polite">
           <h2>Your results</h2>
           <p>
             Your results are shown below based on the information you provided.
             To adjust the results, edit the form and click “calculate
             repayments” again.
           </p>
-          <div class="calc-results">
+          <div class="calc-results" aria-live="polite">
             <div>
               <span class="monthly">Your monthly repayments</span>
               <p class="monthly-repayments"></p>
