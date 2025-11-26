@@ -44,6 +44,14 @@ button {
 
   flex: 2;
 }
+
+.intro {
+  margin-top: 1em;
+  font-size: 0.7rem;
+  color: var(--color-slate-700);
+  max-width: 400px;
+}
+
 .title-button-group h1 {
   font-size: 1.9rem;
 }
