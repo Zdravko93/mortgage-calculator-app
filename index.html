@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>
+      Mortgage Repayment Calculator | Frontend Mentor Solution by Zdravko93
+    </title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Free mortgage repayment calculator. Enter loan amount, interest rate, and term to estimate your monthly payments instantly."
     />
+    <meta
+      name="keywords"
+      content="mortgage calculator, repayment calculator, loan calculator, interest-only mortgage, mortgage term calculator"
+    />
 
+    <!-- SEO -->
     <meta property="og:title" content="Mortgage Repayment Calculator" />
     <meta
       property="og:description"
@@ -35,6 +43,26 @@
       content="https://zdravko93.github.io/mortgage-calculator-app/preview.png"
     />
 
+    <link
+      rel="canonical"
+      href="https://zdravko93.github.io/mortgage-calculator-app/"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!--GSAP-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+      defer
+    ></script>
+    <!--JAVASCRIPT-->
+    <script type="module" src="js/main.js" defer></script>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -45,29 +73,6 @@
         "image": "https://zdravko93.github.io/mortgage-calculator-app/preview.png"
       }
     </script>
-
-    <link
-      rel="canonical"
-      href="https://zdravko93.github.io/mortgage-calculator-app/"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <!--GSAP-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <!--JAVASCRIPT-->
-    <script type="module" src="js/main.js" defer></script>
-    <title>Mortgage Repayment Calculator | Free Online Tool</title>
   </head>
   <body>
     <main class="container">
@@ -76,6 +81,14 @@
           <h1>Mortgage Calculator</h1>
           <button type="button" class="clear-button">Clear All</button>
         </div>
+
+        <!-- Descriptive paragraph for SEO  -->
+        <p class="intro">
+          Use this free mortgage calculator to estimate monthly repayments based
+          on loan amount, interest rate, and mortgage term. Works for both
+          repayment and interest-only mortgages.
+        </p>
+
         <form>
           <!--MORTGAGE AMOUNT-->
           <div class="input-group">
